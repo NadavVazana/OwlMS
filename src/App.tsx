@@ -7,7 +7,6 @@ import { ItemPreview } from "./components/item-preview.tsx";
 export const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <Button>Hello</Button>
     </ThemeProvider>
   );
 };
