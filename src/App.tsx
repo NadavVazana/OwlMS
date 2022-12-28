@@ -1,9 +1,13 @@
-import * as React from 'react'
+import { ThemeProvider } from "@emotion/react";
+import { Button } from "@mui/material";
+import * as React from "react";
+// @ts-ignore
+import { theme } from "./theme.ts";
 
-export function App() {
+export const App = () => {
   return (
-    <section className="App">
-
-    </section>
+    <ThemeProvider theme={theme}>
+      <Button>Hello</Button>
+    </ThemeProvider>
   );
-}
+};
