@@ -1,14 +1,13 @@
+// @ts-nocheck
 import { ThemeProvider } from "@emotion/react";
 import * as React from "react";
-// @ts-ignore
-import { ItemCard } from "./components/item-card.tsx";
-// @ts-ignore
 import { theme } from "./theme.ts";
+import { ItemPreview } from "./components/item-preview.tsx";
 
 export const App = () => {
   return (
     <ThemeProvider theme={theme}>
-        <ItemCard />
+      <Button>Hello</Button>
     </ThemeProvider>
   );
 };
