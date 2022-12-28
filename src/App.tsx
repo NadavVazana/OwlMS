@@ -1,10 +1,15 @@
 import * as React from 'react'
-export const App = () => {
+import { ThemeProvider } from '@mui/material/styles';
+import { Button } from '@mui/material';
+// @ts-ignore
+import { theme } from './theme.ts';
 
+export function App() {
   return (
-    <section className="App">
-
-    </section>
-  );
+      <ThemeProvider theme={theme}>
+        <Button>
+          Hello
+        </Button>
+      </ThemeProvider>
+  )
 }
-
