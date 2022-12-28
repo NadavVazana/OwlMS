@@ -18,7 +18,3 @@ class test{
 
 console.log(test.name);
 console.log(new test().lala)
-
-
-
-
