@@ -1,44 +1,40 @@
-import { Card, Typography } from '@mui/material'
-import { Box, Stack } from '@mui/system'
+// @ts-nocheck
+import { SvgIcon, Typography } from '@mui/material'
 import * as React from 'react'
+import { CardBox } from './styled-components/card-box.tsx'
+import { CardStack } from './styled-components/card-stack.tsx'
+import { ReactComponent as Coin } from '../assets/images/Coin.svg'
+
 
 export const ItemCard = () => {
-
     return (
         <section className="item-card">
-            {/* <Card sx={{ backgroundColor: "primary.main", height: '120px' }}> */}
-                <Stack sx={{ backgroundColor: "primary.main", height: '120px' }}>
-                    <Box
-                        display={'flex'}
-                        gap={'15px'}
-                        justifyContent={'center'}>
-                        <img src={require('../assets/images/scroll.svg').default} alt='scroll-pic' />
-                        <Typography>
-                            <h3>
-                                Dark scroll for Overall armor for INT 30%
-                            </h3>
-                        </Typography>
-                    </Box>
+            <CardStack sx={{ backgroundColor: "primary.main" }}>
+                <CardBox
+                    gap={'18px'}
+                    paddingTop={'14px'}
+                >
+                    <img height={'35px'} src={require('../assets/images/scroll.svg').default} alt='scroll-pic' />
+                    <Typography variant='title'>
+                        Dark scroll for Overall armor for INT 30%
+                    </Typography>
+                </CardBox>
 
-                    <Box
-                        display={'flex'}
-                        gap={'8px'}
-                        alignItems={'center'}
-                        justifyContent={'center'}>
-                        <img height={'24px'} src={require('../assets/images/Coin.svg').default} alt="coin-pic" />
-                        <Typography>
-                            <h4>
-                                13,000,000
-                            </h4>
-                        </Typography>
-                    </Box>
-                </Stack>
+                <CardBox
+                    gap={'8px'}
+                    paddingBottom={'17px'}
+                >
+                    <Coin />
+                    <Typography variant='subtitle1'>
+                        2,147,483,647
+                    </Typography>
+                </CardBox>
+            </CardStack>
 
 
 
 
 
-            {/* </Card> */}
         </section>
     )
 }
