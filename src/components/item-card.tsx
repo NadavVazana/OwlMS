@@ -19,7 +19,6 @@ export const ItemCard = () => {
                         Dark scroll for Overall armor for INT 30%
                     </Typography>
                 </CardBox>
-
                 <CardBox
                     gap={'8px'}
                     paddingBottom={'17px'}
@@ -30,11 +29,6 @@ export const ItemCard = () => {
                     </Typography>
                 </CardBox>
             </CardStack>
-
-
-
-
-
         </section>
     )
 }

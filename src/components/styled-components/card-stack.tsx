@@ -8,5 +8,4 @@ export const CardStack = styled(Stack)<StackProps>(({ theme }) => ({
     height:'130px',
     justifyContent:'space-between',
     paddingInline:'10px'
-    
 }))
