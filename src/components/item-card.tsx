@@ -1,9 +1,9 @@
 // @ts-nocheck
-import { SvgIcon, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 import * as React from 'react'
 import { CardBox } from './styled-components/card-box.tsx'
 import { CardStack } from './styled-components/card-stack.tsx'
-import { ReactComponent as Coin } from '../assets/images/Coin.svg'
+import { Price } from './price.tsx'
 
 
 export const ItemCard = () => {
@@ -19,15 +19,7 @@ export const ItemCard = () => {
                         Dark scroll for Overall armor for INT 30%
                     </Typography>
                 </CardBox>
-                <CardBox
-                    gap={'8px'}
-                    paddingBottom={'17px'}
-                >
-                    <Coin />
-                    <Typography variant='subtitle1'>
-                        2,147,483,647
-                    </Typography>
-                </CardBox>
+                <Price price={'13,000,000'}/>
             </CardStack>
         </section>
     )

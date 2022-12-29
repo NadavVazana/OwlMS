@@ -7,5 +7,5 @@ export const CardStack = styled(Stack)<StackProps>(({ theme }) => ({
     borderRadius:'14px',
     height:'130px',
     justifyContent:'space-between',
-    paddingInline:'10px'
+    paddingInline:'10px',
 }))

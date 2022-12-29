@@ -1,13 +1,22 @@
 import { createTheme } from '@mui/material/styles';
+import { lineHeight } from '@mui/system';
+import React from 'react';
 
 
 declare module '@mui/material/styles' {
     interface TypographyVariants {
         title: React.CSSProperties;
+        infoTitle: React.CSSProperties;
+        info: React.CSSProperties;
+        description:React.CSSProperties;
+
     }
 
     interface TypographyVariantsOptions {
         title?: React.CSSProperties;
+        infoTitle?: React.CSSProperties;
+        info?: React.CSSProperties;
+        description?:React.CSSProperties;
     }
 }
 
@@ -22,6 +31,35 @@ declare module '@mui/material/styles' {
 let theme = createTheme({
     typography: {
         fontFamily: 'Roboto',
+
+        infoTitle:{
+            fontSize:'20px',
+            letterSpacing: '0.025em',
+            color:'white',
+            fontFamily:'Roboto',
+            paddingTop:'10px',
+            fontWeight:'400'
+
+        },
+        info:{
+            fontSize:'35px',
+            paddingTop:'25px',
+            fontFamily:'Roboto',
+            color:'white',
+            fontWeight:'800',
+            lineHeight:'28px'
+        },
+        description:{
+            overflowY:'auto',
+            fontSize:'18px',
+            paddingTop:'25px',
+            fontFamily:'Roboto',
+            color:'white',
+            fontWeight:'300',
+            paddingInline:'12px',
+            lineHeight:'28px'
+            
+        },
         title: {
             textAlign: 'center',
             fontWeight: '800',
@@ -55,6 +93,16 @@ theme.typography.title = {
     },
 };
 
+
+theme.typography.info = {
+    ...theme.typography.info,
+    [theme.breakpoints.down(700)]:{
+        fontSize:'30px'
+    },
+    [theme.breakpoints.down(510)]:{
+        fontSize:'21px'
+    }
+}
 export default theme
 
 

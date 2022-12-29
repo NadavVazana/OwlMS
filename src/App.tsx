@@ -4,13 +4,13 @@ import * as React from "react";
 import theme from "./theme.ts";
 import { ItemPreview } from "./components/item-preview.tsx";
 import { ItemCard } from "./components/item-card.tsx";
-import { responsiveFontSizes } from "@mui/material";
 
 
 export const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <ItemCard/>
+      {/* <ItemCard/> */}
+      <ItemPreview />
     </ThemeProvider>
   );
 };
