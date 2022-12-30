@@ -18,6 +18,15 @@ declare module '@mui/material/styles' {
     }
 }
 
+declare module "@mui/material/Typography" {
+    interface TypographyPropsVariantOverrides {
+        title: true;
+        infoTitle: true;
+        info: true;
+        description:true;
+    }
+  }
+
 declare module '@mui/material/styles' {
     interface Theme {
     }
@@ -101,6 +110,5 @@ theme.typography.info = {
         fontSize:'21px'
     }
 }
+
 export default theme
-
-

@@ -1,14 +1,13 @@
 // @ts-nocheck
 import { Typography } from "@mui/material";
 import * as React from "react";
-import { CardBox } from "./styled-components/card-box.tsx";
+import { CardBox } from "./styled-components/card-box";
 
 type ItemTitleProps = {
   title: string;
-  price: string;
 };
 
-export const ItemTitle = ({ title, price }: ItemTitleProps) => {
+export const ItemTitle = ({ title }: ItemTitleProps) => {
   return (
     <React.Fragment>
       <CardBox gap={"18px"} paddingTop={"14px"}>

@@ -1,14 +1,17 @@
-// @ts-nocheck
 import * as React from "react";
-import { CardStack } from "./styled-components/card-stack.tsx";
-import { Price } from "./price.tsx";
+import { CardStack } from "./styled-components/card-stack";
+import { Price } from "./price";
 
-export const ItemCard: React.FC<{}> = (props) => {
+type ItemCardProps = {
+  children: React.ReactNode;
+};
+
+export const ItemCard = ({ children }: ItemCardProps) => {
   return (
     <section className="item-card">
       <CardStack sx={{ backgroundColor: "primary.main" }}>
-        {props.children}
-        <Price price="13,000,000" />
+        {children}
+        <Price price={"13,000,000"} />
       </CardStack>
     </section>
   );

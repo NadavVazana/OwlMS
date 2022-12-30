@@ -1,12 +1,11 @@
 // @ts-nocheck
 import { Grid, Typography } from "@mui/material";
-import * as React from "react";
-import { CardBox } from "./styled-components/card-box.tsx";
-import { CardInfoBox } from "./styled-components/card-info-box.tsx";
-import { CardStack } from "./styled-components/card-stack.tsx";
-import { Price } from "./price.tsx";
-import { ItemPreviewCard } from "./item-preview-card.tsx";
-import { ItemTitle } from "./item-title.tsx";
+import { CardBox } from "./styled-components/card-box";
+import { CardInfoBox } from "./styled-components/card-info-box";
+import { CardStack } from "./styled-components/card-stack";
+import { Price } from "./price";
+import { ItemPreviewCard } from "./item-preview-card";
+import { ItemTitle } from "./item-title";
 
 export const ItemPreview = () => {
   return (
