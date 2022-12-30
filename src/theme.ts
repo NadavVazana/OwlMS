@@ -1,5 +1,4 @@
 import { createTheme } from '@mui/material/styles';
-import { lineHeight } from '@mui/system';
 import React from 'react';
 
 
@@ -9,7 +8,6 @@ declare module '@mui/material/styles' {
         infoTitle: React.CSSProperties;
         info: React.CSSProperties;
         description:React.CSSProperties;
-
     }
 
     interface TypographyVariantsOptions {
