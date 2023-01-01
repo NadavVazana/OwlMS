@@ -1,7 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 
 let theme = createTheme({
-
     typography: {
         fontFamily: 'Roboto',
         infoTitle:{
@@ -51,6 +50,9 @@ let theme = createTheme({
         primary: {
             main: "#19976A",
             dark: "#125F43",
+        },
+        custom: {
+            background: "#0B0D0F"
         }
     }
 });
