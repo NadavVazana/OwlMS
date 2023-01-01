@@ -1,4 +1,5 @@
 // @ts-nocheck
+import * as React from "react";
 import { Grid, Typography } from "@mui/material";
 import { CardBox } from "./styled-components/card-box";
 import { CardInfoBox } from "./styled-components/card-info-box";
@@ -9,7 +10,7 @@ import { ItemTitle } from "./item-title";
 
 export const ItemPreview = () => {
   return (
-    <section>
+    <React.Fragment>
       <CardStack
         sx={{
           backgroundColor: "#1E2022",
@@ -81,6 +82,6 @@ export const ItemPreview = () => {
         </CardBox>
         <Price paddingTop={"20px"} price={"13,000,000"} />
       </CardStack>
-    </section>
+    </React.Fragment>
   );
 };
