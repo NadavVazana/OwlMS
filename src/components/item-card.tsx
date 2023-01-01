@@ -8,11 +8,11 @@ type ItemCardProps = {
 
 export const ItemCard = ({ children }: ItemCardProps) => {
   return (
-    <section className="item-card">
+    <React.Fragment>
       <CardStack sx={{ backgroundColor: "primary.main" }}>
         {children}
-        <Price price={"13,000,000"} />
+        <Price price="13,000,000" />
       </CardStack>
-    </section>
+      </React.Fragment>
   );
 };

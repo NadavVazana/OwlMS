@@ -28,14 +28,24 @@ declare module "@mui/material/Typography" {
   }
 
 declare module '@mui/material/styles' {
-    interface Theme {
+    interface Pallette{
+        custom:{
+            light : string
+        }
     }
 
-    interface ThemeOptions {
+    interface PalletteOptions{
+        custom?:{
+            light? : string
+        }
+        
     }
+
+    
 }
 
 let theme = createTheme({
+
     typography: {
         fontFamily: 'Roboto',
 
@@ -86,7 +96,10 @@ let theme = createTheme({
         primary: {
             main: "#19976A",
             dark: "#125F43",
-        }
+        },
+        
+
+        
     }
 });
 
