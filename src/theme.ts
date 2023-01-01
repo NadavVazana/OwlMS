@@ -1,54 +1,9 @@
 import { createTheme } from '@mui/material/styles';
-import React from 'react';
-
-
-declare module '@mui/material/styles' {
-    interface TypographyVariants {
-        title: React.CSSProperties;
-        infoTitle: React.CSSProperties;
-        info: React.CSSProperties;
-        description:React.CSSProperties;
-    }
-
-    interface TypographyVariantsOptions {
-        title?: React.CSSProperties;
-        infoTitle?: React.CSSProperties;
-        info?: React.CSSProperties;
-        description?:React.CSSProperties;
-    }
-}
-
-declare module "@mui/material/Typography" {
-    interface TypographyPropsVariantOverrides {
-        title: true;
-        infoTitle: true;
-        info: true;
-        description:true;
-    }
-  }
-
-declare module '@mui/material/styles' {
-    interface Pallette{
-        custom:{
-            light : string
-        }
-    }
-
-    interface PalletteOptions{
-        custom?:{
-            light? : string
-        }
-        
-    }
-
-    
-}
 
 let theme = createTheme({
 
     typography: {
         fontFamily: 'Roboto',
-
         infoTitle:{
             fontSize:'20px',
             letterSpacing: '0.025em',
@@ -96,10 +51,7 @@ let theme = createTheme({
         primary: {
             main: "#19976A",
             dark: "#125F43",
-        },
-        
-
-        
+        }
     }
 });
 
