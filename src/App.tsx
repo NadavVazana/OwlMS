@@ -5,7 +5,6 @@ import { Header } from "./components/header";
 import { RecoilRoot } from "recoil";
 import routes from "./routes";
 import { Route, Routes } from "react-router-dom";
-import { Box } from "@mui/system";
 
 export const App = () => {
   return (

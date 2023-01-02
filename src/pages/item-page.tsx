@@ -5,29 +5,44 @@ import { ItemCard } from "../components/item-card";
 import { ItemPreview } from "../components/item-preview";
 import { ItemTitle } from "../components/item-title";
 import { selectedItem } from "../atoms/selected-item";
+import { isVisible } from "../atoms/is-visible";
+import { isItemModal } from "../atoms/is-item-modal";
 import { Item } from "../models/item";
 import items from "../mocks/item-mock";
 
 export const ItemPage = () => {
   const [item, setItem] = useRecoilState(selectedItem);
+  const [isHeaderVisible, setHeaderVisible] = useRecoilState(isVisible);
+  const [isModal, setModal] = useRecoilState(isItemModal);
 
   const handleSelectItem = (item: Item) => {
     setItem(item);
+    setModal(true);
   };
+
+  const handleCloseModal = () => {
+    setItem(items[0]);
+    setModal(false);
+  };
+
+  // TODO: CHECK IF ITS THE BEST WAY
+  window.addEventListener("scroll", (event) => {
+    setHeaderVisible(window.pageYOffset >= 110 ? false : true);
+  });
 
   return (
     <Box sx={{ bgcolor: "custom.background" }} height={"100vh"}>
       <Stack
-        gap={"200px"}
         direction={"row"}
         sx={{
+          gap: { md: "80px", xl: "100px" },
           bgcolor: "custom.background",
           paddingTop: "15px",
-          paddingInline: "40px",
+          paddingInline: { xs: "5px", md: "40px" },
         }}
       >
         <Box
-          width={"50%"}
+          sx={{ width: { xs: "100%", md: "50%" } }}
           display={"flex"}
           flexDirection={"column"}
           gap={"30px"}
@@ -45,8 +60,15 @@ export const ItemPage = () => {
           })}
         </Box>
 
-        <Box width={"50%"}>
-          <ItemPreview item={item} />
+        <Box
+          sx={{
+            transition: "opacity 0.3s",
+            pointerEvents: { xs: isModal ? "all" : "none", md: "all" },
+            opacity: { xs: isModal ? 1 : 0, md: 1 },
+            position: { xs: "fixed", md: "static" },
+          }}
+        >
+          <ItemPreview handleCloseModal={handleCloseModal} item={item} />
         </Box>
       </Stack>
     </Box>

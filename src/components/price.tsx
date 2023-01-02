@@ -4,13 +4,12 @@ import { CardBox } from "./styled-components/card-box";
 
 type PriceProps = {
   price: string;
-  // We want to either get a number or string for example "5px"
-  paddingTop?: number | string;
+  isForPreview: boolean;
 };
 
-export const Price = ({ price, paddingTop = 0 }: PriceProps) => {
+export const Price = ({ price, isForPreview = false }: PriceProps) => {
   return (
-    <CardBox paddingTop={paddingTop} gap={"8px"}>
+    <CardBox sx={{ paddingTop: isForPreview ? "80px" : "20px" }} gap={"8px"}>
       <Coin />
       <Typography variant="subtitle1" fontSize={"30px"}>
         {price}

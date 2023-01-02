@@ -8,36 +8,63 @@ import { Price } from "./price";
 import { ItemPreviewCard } from "./item-preview-card";
 import { ItemTitle } from "./item-title";
 import { Item } from "../models/item";
+import { useRecoilValue } from "recoil";
+import { isVisible } from "../atoms/is-visible";
+import { ReactComponent as CloseModalIcon } from "../assets/images/close-modal.svg";
+import { Box } from "@mui/system";
 
 type ItemPreviewProps = {
   item?: Item;
+  handleCloseModal: () => void;
 };
 
-export const ItemPreview = ({ item }: ItemPreviewProps) => {
+export const ItemPreview = ({ item, handleCloseModal }: ItemPreviewProps) => {
+  const visible = useRecoilValue(isVisible);
+
   return (
     <React.Fragment>
       <CardStack
         sx={{
+          transition: "all 0.3s",
           backgroundColor: "#1E2022",
           height: "fit-content",
           justifyContent: "unset",
-          gap: "50px",
+          gap: "30px",
           position: "fixed",
+          top: {
+            xs: visible ? "110px" : "10px",
+            md: visible ? "125px" : "40px",
+          },
           paddingBottom: "30px",
-          marginInlineEnd: "40px",
+          marginInlineEnd: { xs: "5px", md: "40px" },
         }}
       >
+        <Box
+          sx={{
+            display: { xs: "block", md: "none" },
+            position: "absolute",
+            right: "10px",
+            top: "10px",
+          }}
+        >
+          <CloseModalIcon onClick={handleCloseModal} />
+        </Box>
         <CardBox gap={"18px"} paddingTop={"14px"}>
           <ItemTitle title={item.item_name} />
         </CardBox>
         <CardBox>
           <Grid
             justifyContent={"center"}
-            sx={{ height: "550px" }}
+            sx={{
+              height: {
+                md: visible ? "550px" : "610px",
+                xs: visible ? "280px" : "350px",
+              },
+            }}
             container
             spacing={2}
           >
-            <Grid height={"20%"} item xs={5}>
+            <Grid sx={{ height: { xs: "40%", md: "20%" } }} item xs={5}>
               <ItemPreviewCard title="Channel" info={item.channel}>
                 <img
                   style={{ position: "absolute", top: "-20px", right: "5px" }}
@@ -48,7 +75,7 @@ export const ItemPreview = ({ item }: ItemPreviewProps) => {
                 />
               </ItemPreviewCard>
             </Grid>
-            <Grid height={"20%"} item xs={5}>
+            <Grid sx={{ height: { xs: "40%", md: "20%" } }} item xs={5}>
               <ItemPreviewCard title="Room" info={item.room}>
                 <img
                   style={{ position: "absolute", top: "-20px", right: "5px" }}
@@ -57,7 +84,12 @@ export const ItemPreview = ({ item }: ItemPreviewProps) => {
                 />
               </ItemPreviewCard>
             </Grid>
-            <Grid marginTop={"20px"} height={"21%"} item xs={10}>
+            <Grid
+              marginTop={"20px"}
+              sx={{ height: { xs: "40%", md: "20%" } }}
+              item
+              xs={10}
+            >
               <CardInfoBox>
                 <img
                   style={{ position: "absolute", top: "-20px", right: "5px" }}
@@ -68,7 +100,12 @@ export const ItemPreview = ({ item }: ItemPreviewProps) => {
                 <Typography variant="info">{item?.store_name}</Typography>
               </CardInfoBox>
             </Grid>
-            <Grid marginY={"20px"} height={"59%"} item xs={10}>
+            <Grid
+              marginY={"20px"}
+              sx={{ height: { xs: "40%", md: "59%" } }}
+              item
+              xs={10}
+            >
               <CardInfoBox>
                 <img
                   style={{ position: "absolute", top: "-20px", right: "5px" }}
@@ -85,7 +122,7 @@ export const ItemPreview = ({ item }: ItemPreviewProps) => {
             </Grid>
           </Grid>
         </CardBox>
-        <Price paddingTop={"20px"} price={"13,000,000"} />
+        <Price isForPreview={true} price={item?.item_price} />
       </CardStack>
     </React.Fragment>
   );
