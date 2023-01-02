@@ -9,6 +9,7 @@ export const CardInfoBox = styled(Box)<BoxProps>(({ theme }) => ({
     borderRadius:'20px',
     height:'100%',
     position:'relative'
+    
 }))
 
 

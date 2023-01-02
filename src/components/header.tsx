@@ -1,59 +1,74 @@
 // @ts-nocheck
-import { AppBar, Autocomplete, TextField, Typography } from "@mui/material";
-import { Box, display, width } from "@mui/system";
+import { AppBar, Autocomplete, Drawer, Paper, Typography } from "@mui/material";
+import { Box } from "@mui/system";
 import * as React from "react";
-import { ReactComponent as Owl } from '../assets/images/Owl.svg'
+import { SearchInput } from "../components/styled-components/search-input.tsx";
+import { ReactComponent as Owl } from "../assets/images/Owl.svg";
+import { SideMenu } from "../components/side-menu";
+import { useRecoilState } from "recoil";
+import { drawerState } from "../atoms/drawerState";
 
 export const Header = () => {
-    //MOCK DATA FOR AUTO COMPLETE
-    const handleInput = () => {
+  //MOCK DATA FOR AUTO COMPLETE
+  const options = ["Dark scroll", "Gloves for att"];
 
-    }
-    const options = ['Dark scroll', 'Gloves for att']
-    return (
-        <React.Fragment>
-            <AppBar sx={{ backgroundColor: 'custom.background', height: '110px',flexDirection:'row',alignItems:'center',justifyContent:'space-between' }}>
-                <Box
-                    alignItems={'center'}
-                    height={'100%'}
-                    gap={'10px'}
-                    paddingLeft={'54px'}
-                    display={'flex'}>
-                    <Owl />
-                    <Typography variant="title">OwlMS</Typography>
+  return (
+    <React.Fragment>
+      <AppBar
+        sx={{
+          backgroundColor: "custom.background",
+          height: "110px",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: "10px",
+        }}
+      >
+        <Box
+          sx={{ cursor: "pointer" }}
+          alignItems={"center"}
+          height={"100%"}
+          gap={"10px"}
+          paddingLeft={"15px"}
+          display={"flex"}
+        >
+          <Owl style={{ height: "40px" }} />
+          <Typography variant="title">OwlMS</Typography>
+        </Box>
 
-                </Box>
+        <Autocomplete
+          freeSolo
+          disablePortal
+          id="combo-box-demo"
+          options={options.map((option) => option)}
+          sx={{ width: "50%" }}
+          PaperComponent={({ children }) => (
+            <Paper sx={{ fontFamily: "Roboto" }}>{children}</Paper>
+          )}
+          renderInput={(params) => (
+            <SearchInput
+              {...params}
+              label="Search example: Dark scroll for Overall armor..."
+            />
+          )}
+        />
 
-                <Autocomplete
-                freeSolo
-                
-                    disablePortal
-                    id="combo-box-demo"
-                    options={options.map((option)=>option)}
-                    sx={{ width: 300 }}
-                    renderInput={(params) => <TextField 
-                        sx={{justifySelf:'center',
-                        position:'absolute',
-                        top:'50%',
-                        left:'50%',
-                        transform:'translate(-40%,-50%)',
-                        width:'50%',
-                        height:'50px',
-                        display:{xs:'none',sm:'none',md:'block'}
-                        ,backgroundColor:'white'
-                        ,borderRadius:'11px'
-                        ,color:'black',
-                    }} {...params} label="Search example: Dark scroll for Overall armor..." />}
-                />
-
-                <Box>
-                    <Typography sx={{paddingRight:'15px'}} variant="h6" fontWeight={'400'} fontSize={'18px'}>
-                        About
-                    </Typography>
-                </Box>
-
-            </AppBar>
-
-        </React.Fragment>
-    )
-}
+        <Box>
+          <Typography
+            sx={{
+              paddingRight: "15px",
+              cursor: "pointer",
+              display: { xs: "none", sm: "block" },
+            }}
+            variant="h6"
+            fontWeight={"400"}
+            fontSize={"18px"}
+          >
+            About
+          </Typography>
+        </Box>
+        <SideMenu />
+      </AppBar>
+    </React.Fragment>
+  );
+};

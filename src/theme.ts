@@ -52,7 +52,8 @@ let theme = createTheme({
             dark: "#125F43",
         },
         custom: {
-            background: "#0B0D0F"
+            background: "#0B0D0F",
+            
         }
     }
 });
