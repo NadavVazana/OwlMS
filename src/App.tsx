@@ -1,22 +1,23 @@
-import { ThemeProvider } from "@emotion/react";
-import * as React from "react";
+// @ts-nocheck
+import { ThemeProvider } from "@mui/material";
 import theme from "./theme";
-import { ItemPreview } from "./components/item-preview";
-import { ItemCard } from "./components/item-card";
-import { ItemTitle } from "./components/item-title";
 import { Header } from "./components/header";
 import { RecoilRoot } from "recoil";
+import routes from "./routes";
+import { Route, Routes } from "react-router-dom";
+import { Box } from "@mui/system";
 
 export const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <RecoilRoot>
+    <RecoilRoot>
+      <ThemeProvider theme={theme}>
         <Header />
-        {/* <ItemCard>
-        <ItemTitle title="Dark scroll for Overall Armor for INT 30%" />
-      </ItemCard>
-      <ItemPreview /> */}
-      </RecoilRoot>
-    </ThemeProvider>
+        <Routes>
+          {routes.map((route) => (
+            <Route key={route.path} path={route.path} element={route.element} />
+          ))}
+        </Routes>
+      </ThemeProvider>
+    </RecoilRoot>
   );
 };

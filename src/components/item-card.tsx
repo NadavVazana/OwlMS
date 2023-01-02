@@ -1,18 +1,38 @@
+// @ts-nocheck
 import * as React from "react";
 import { CardStack } from "./styled-components/card-stack";
 import { Price } from "./price";
+import { Item } from "../models/item";
+import { selectedItem } from "../atoms/selected-item";
+import { useRecoilValue } from "recoil";
 
 type ItemCardProps = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
+  item: Item;
+  handleSelectedItem: (item) => void;
 };
 
-export const ItemCard = ({ children }: ItemCardProps) => {
+export const ItemCard = ({
+  children,
+  item,
+  handleSelectedItem,
+}: ItemCardProps) => {
+  const selected = useRecoilValue(selectedItem);
+
   return (
     <React.Fragment>
-      <CardStack sx={{ backgroundColor: "primary.main" }}>
+      <CardStack
+        onClick={() => {
+          handleSelectedItem(item);
+        }}
+        sx={{
+          backgroundColor:
+            selected.id === item.id ? "primary.dark" : "primary.main",
+        }}
+      >
         {children}
-        <Price price="13,000,000" />
+        <Price price={item.item_price} />
       </CardStack>
-      </React.Fragment>
+    </React.Fragment>
   );
 };

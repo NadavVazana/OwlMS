@@ -7,31 +7,38 @@ import { CardStack } from "./styled-components/card-stack";
 import { Price } from "./price";
 import { ItemPreviewCard } from "./item-preview-card";
 import { ItemTitle } from "./item-title";
+import { Item } from "../models/item";
 
-export const ItemPreview = () => {
+type ItemPreviewProps = {
+  item?: Item;
+};
+
+export const ItemPreview = ({ item }: ItemPreviewProps) => {
   return (
     <React.Fragment>
       <CardStack
         sx={{
           backgroundColor: "#1E2022",
-          height: "890px",
+          height: "fit-content",
           justifyContent: "unset",
           gap: "50px",
+          position: "fixed",
           paddingBottom: "30px",
+          marginInlineEnd: "40px",
         }}
       >
         <CardBox gap={"18px"} paddingTop={"14px"}>
-          <ItemTitle title="Dark scroll for overall Armor for INT 30%" />
+          <ItemTitle title={item.item_name} />
         </CardBox>
         <CardBox>
           <Grid
             justifyContent={"center"}
-            sx={{ height: "700px" }}
+            sx={{ height: "550px" }}
             container
             spacing={2}
           >
             <Grid height={"20%"} item xs={5}>
-              <ItemPreviewCard title="Channel" info="4">
+              <ItemPreviewCard title="Channel" info={item.channel}>
                 <img
                   style={{ position: "absolute", top: "-20px", right: "5px" }}
                   src={
@@ -42,7 +49,7 @@ export const ItemPreview = () => {
               </ItemPreviewCard>
             </Grid>
             <Grid height={"20%"} item xs={5}>
-              <ItemPreviewCard title="Room" info="7">
+              <ItemPreviewCard title="Room" info={item.room}>
                 <img
                   style={{ position: "absolute", top: "-20px", right: "5px" }}
                   src={require("../assets/images/Card_Icon_Room.svg").default}
@@ -58,9 +65,7 @@ export const ItemPreview = () => {
                   alt="store-icon"
                 />
                 <Typography variant="infoTitle">Store Name</Typography>
-                <Typography variant="info">
-                  4-7 top ladder dark scrolls
-                </Typography>
+                <Typography variant="info">{item?.store_name}</Typography>
               </CardInfoBox>
             </Grid>
             <Grid marginY={"20px"} height={"59%"} item xs={10}>

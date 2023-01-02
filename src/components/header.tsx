@@ -1,21 +1,23 @@
 // @ts-nocheck
-import { AppBar, Autocomplete, Drawer, Paper, Typography } from "@mui/material";
+import { AppBar, Autocomplete, Paper, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import * as React from "react";
 import { SearchInput } from "../components/styled-components/search-input.tsx";
 import { ReactComponent as Owl } from "../assets/images/Owl.svg";
 import { SideMenu } from "../components/side-menu";
-import { useRecoilState } from "recoil";
-import { drawerState } from "../atoms/drawerState";
+import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
   //MOCK DATA FOR AUTO COMPLETE
   const options = ["Dark scroll", "Gloves for att"];
 
+  const navigate = useNavigate();
+
   return (
     <React.Fragment>
       <AppBar
         sx={{
+          position: "static",
           backgroundColor: "custom.background",
           height: "110px",
           flexDirection: "row",
@@ -25,6 +27,7 @@ export const Header = () => {
         }}
       >
         <Box
+          onClick={() => navigate("/")}
           sx={{ cursor: "pointer" }}
           alignItems={"center"}
           height={"100%"}

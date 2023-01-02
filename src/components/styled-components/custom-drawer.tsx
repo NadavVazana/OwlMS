@@ -3,10 +3,7 @@ import { styled } from "@mui/material/styles";
 
 export const CustomDrawer = styled(Drawer)<DrawerProps>(({ theme }) => ({
   "& .drawer": {
-    width: "40%",
-
-    "& *": { color: "black" },
-
+    width: "30%",
     backgroundColor: theme.palette.custom.background,
   },
 }));
