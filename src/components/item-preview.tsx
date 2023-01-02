@@ -29,7 +29,7 @@ export const ItemPreview = ({ item, handleCloseModal }: ItemPreviewProps) => {
           backgroundColor: "#1E2022",
           height: "fit-content",
           justifyContent: "unset",
-          gap: "30px",
+          gap: { xs: "30px", md: "20px" },
           position: "fixed",
           top: {
             xs: visible ? "110px" : "10px",
