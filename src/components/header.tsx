@@ -36,17 +36,19 @@ export const Header = () => {
       >
         <Box
           onClick={() => navigate("/")}
-          sx={{ cursor: "pointer" }}
+          sx={{ cursor: "pointer", paddingLeft: { xs: "10px", md: "50px" } }}
           alignItems={"center"}
           justifyContent={"center"}
           height={"100%"}
           gap={"10px"}
           flexDirection={"column"}
-          paddingLeft={"20px"}
+          paddingTop="10px"
           display={"flex"}
         >
           <Owl style={{ height: "40px" }} />
-          <Typography variant="title">OwlMS</Typography>
+          <Typography variant="title">
+            <span style={{ color: "#19976A" }}>Owl</span>MS
+          </Typography>
         </Box>
 
         <Autocomplete
@@ -69,7 +71,7 @@ export const Header = () => {
         <Box>
           <Typography
             sx={{
-              paddingRight: "20px",
+              paddingRight: "50px",
               cursor: "pointer",
               display: { xs: "none", sm: "block" },
             }}

@@ -22,7 +22,6 @@ let theme = createTheme({
     description: {
       overflowY: "auto",
       fontSize: "18px",
-      //   paddingTop: "25px",
       fontFamily: "Roboto",
       color: "white",
       fontWeight: "300",
