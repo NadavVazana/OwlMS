@@ -1,9 +1,9 @@
 // @ts-nocheck
 import * as React from "react";
-import { CardStack } from "./styled-components/card-stack";
+import { CardStack } from "../styled-components/card-stack";
 import { Price } from "./price";
-import { Item } from "../models/item";
-import { selectedItem } from "../atoms/selected-item";
+import { Item } from "../../models/item";
+import { selectedItem } from "../../atoms/selected-item";
 import { useRecoilValue } from "recoil";
 
 type ItemCardProps = {

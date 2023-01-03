@@ -1,9 +1,9 @@
 import { Stack } from "@mui/system";
 import Box from "@mui/material/Box";
 import { useRecoilState } from "recoil";
-import { ItemCard } from "../components/item-card";
-import { ItemPreview } from "../components/item-preview";
-import { ItemTitle } from "../components/item-title";
+import { ItemCard } from "../components/item-page/item-card";
+import { ItemPreview } from "../components/item-page/preview/item-preview";
+import { ItemTitle } from "../components/item-page/item-title";
 import { selectedItem } from "../atoms/selected-item";
 import { isItemModal } from "../atoms/is-item-modal";
 import { Item } from "../models/item";
@@ -24,7 +24,7 @@ export const ItemPage = () => {
   };
 
   return (
-    <Box sx={{ bgcolor: "custom.background" }} height={"89vh"}>
+    <Box sx={{ bgcolor: "custom.background" }}>
       <Stack
         direction={"row"}
         sx={{

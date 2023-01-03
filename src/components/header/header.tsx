@@ -2,18 +2,18 @@
 import { AppBar, Autocomplete, Paper, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import * as React from "react";
-import { SearchInput } from "../components/styled-components/search-input.tsx";
-import { SideMenu } from "../components/side-menu";
-import { OwlIcon } from "../components/owl-icon";
+import { SearchInput } from "../styled-components/search-input";
+import { SideMenu } from "./side-menu";
+import { OwlIcon } from "./owl-icon";
 import { useNavigate } from "react-router-dom";
-import { options } from "../mocks/autocomplete-mock";
+import { options } from "../../mocks/autocomplete-mock";
 
 export const Header = () => {
   const navigate = useNavigate();
 
   return (
     <React.Fragment>
-      <div style={{ height: "11vh" }} />
+      <div style={{ height: "110px" }} />
       <AppBar
         sx={{
           position: "fixed",

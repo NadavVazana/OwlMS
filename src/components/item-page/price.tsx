@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
-import { ReactComponent as Coin } from "../assets/images/Coin.svg";
-import { CardBox } from "./styled-components/card-box";
+import { ReactComponent as Coin } from "../../assets/images/Coin.svg";
+import { CardBox } from "../styled-components/card-box";
 
 type PriceProps = {
   price: string;

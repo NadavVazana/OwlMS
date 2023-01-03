@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { Typography } from "@mui/material";
 import * as React from "react";
-import { CardBox } from "./styled-components/card-box";
+import { CardBox } from "../styled-components/card-box";
 
 type ItemTitleProps = {
   title: string;
@@ -14,7 +14,7 @@ export const ItemTitle = ({ title }: ItemTitleProps) => {
         <img
           style={{ paddingLeft: "10px" }}
           height={"35px"}
-          src={require("../assets/images/scroll.svg").default}
+          src={require("../../assets/images/scroll.svg").default}
           alt="scroll-pic"
         />
         <Typography

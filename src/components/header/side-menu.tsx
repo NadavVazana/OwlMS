@@ -4,9 +4,9 @@ import { Box } from "@mui/system";
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { drawerState } from "../atoms/drawerState";
-import { ReactComponent as Menu } from "../assets/images/menu.svg";
-import { CustomDrawer } from "../components/styled-components/custom-drawer";
+import { drawerState } from "../../atoms/drawerState";
+import { ReactComponent as Menu } from "../../assets/images/menu.svg";
+import { CustomDrawer } from "../../components/styled-components/custom-drawer";
 
 export const SideMenu = () => {
   const [isMenu, setMenu] = useRecoilState(drawerState);

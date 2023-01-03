@@ -2,7 +2,7 @@
 // apply our custom variants on the typography component
 // @ts-nocheck
 import { Typography } from "@mui/material";
-import { CardInfoBox } from "./styled-components/card-info-box";
+import { CardInfoBox } from "../../styled-components/card-info-box";
 
 type ItemPreviewCardProps = {
   title: string;

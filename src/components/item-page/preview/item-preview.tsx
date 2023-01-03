@@ -1,14 +1,14 @@
 // @ts-nocheck
 import * as React from "react";
 import { Grid, Typography } from "@mui/material";
-import { CardBox } from "./styled-components/card-box";
-import { CardInfoBox } from "./styled-components/card-info-box";
-import { CardStack } from "./styled-components/card-stack";
-import { Price } from "./price";
+import { CardBox } from "../../styled-components/card-box";
+import { CardInfoBox } from "../../styled-components/card-info-box";
+import { CardStack } from "../../styled-components/card-stack";
+import { Price } from "../../../components/item-page/price";
 import { ItemPreviewCard } from "./item-preview-card";
-import { ItemTitle } from "./item-title";
+import { ItemTitle } from "../item-title";
 import { Item } from "../models/item";
-import { ReactComponent as CloseModalIcon } from "../assets/images/close-modal.svg";
+import { ReactComponent as CloseModalIcon } from "../../../assets/images/close-modal.svg";
 import { Box } from "@mui/system";
 
 type ItemPreviewProps = {
@@ -68,7 +68,8 @@ export const ItemPreview = ({ item, handleCloseModal }: ItemPreviewProps) => {
                 <img
                   style={{ position: "absolute", top: "-20px", right: "5px" }}
                   src={
-                    require("../assets/images/Card_Icon_Channel.svg").default
+                    require("../../../assets/images/Card_Icon_Channel.svg")
+                      .default
                   }
                   alt="channel-icon"
                 />
@@ -84,7 +85,9 @@ export const ItemPreview = ({ item, handleCloseModal }: ItemPreviewProps) => {
               <ItemPreviewCard title="Room" info={item.room}>
                 <img
                   style={{ position: "absolute", top: "-20px", right: "5px" }}
-                  src={require("../assets/images/Card_Icon_Room.svg").default}
+                  src={
+                    require("../../../assets/images/Card_Icon_Room.svg").default
+                  }
                   alt="channel-icon"
                 />
               </ItemPreviewCard>
@@ -98,7 +101,7 @@ export const ItemPreview = ({ item, handleCloseModal }: ItemPreviewProps) => {
               <CardInfoBox>
                 <img
                   style={{ position: "absolute", top: "-20px", right: "5px" }}
-                  src={require("../assets/images/Store_Icon.svg").default}
+                  src={require("../../../assets/images/Store_Icon.svg").default}
                   alt="store-icon"
                 />
                 <Typography variant="infoTitle">Store Name</Typography>
@@ -120,7 +123,7 @@ export const ItemPreview = ({ item, handleCloseModal }: ItemPreviewProps) => {
               <CardInfoBox>
                 <img
                   style={{ position: "absolute", top: "-20px", right: "5px" }}
-                  src={require("../assets/images/Info Icon.svg").default}
+                  src={require("../../../assets/images/Info Icon.svg").default}
                   alt="info-icon"
                 />
                 <Typography variant="infoTitle">Information</Typography>
