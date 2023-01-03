@@ -26,7 +26,7 @@ export const ItemPreview = ({ item, handleCloseModal }: ItemPreviewProps) => {
           borderRadius: { xs: "0", md: "14px" },
           transition: "all 0.3s",
           backgroundColor: "#1E2022",
-          height: { xs: "100%", md: "83%" },
+          height: { xs: "100%", md: screenHeight < 900 ? "80%" : "83%" },
           justifyContent: "unset",
           gap: { xs: "30px", md: "50px" },
           position: "fixed",
@@ -110,7 +110,7 @@ export const ItemPreview = ({ item, handleCloseModal }: ItemPreviewProps) => {
               sx={{
                 height: {
                   xs: screenHeight > 750 ? "400px" : "200px",
-                  md: "59%",
+                  md: screenHeight < 900 ? "25%" : "59%",
                 },
                 maxHeight: { xs: "30%", md: "59%" },
               }}
@@ -133,7 +133,11 @@ export const ItemPreview = ({ item, handleCloseModal }: ItemPreviewProps) => {
             </Grid>
           </Grid>
         </CardBox>
-        <Price isForPreview={true} price={item?.item_price} />
+        <Price
+          screenHeight={screenHeight}
+          isForPreview={true}
+          price={item?.item_price}
+        />
       </CardStack>
     </React.Fragment>
   );

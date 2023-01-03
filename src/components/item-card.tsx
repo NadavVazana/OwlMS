@@ -37,6 +37,8 @@ export const ItemCard = ({
                 ? "inset 5px 5px 10px rgba(0, 0, 0, 0.4);"
                 : 0,
           },
+          marginInline: { xs: "5px", md: "unset" },
+          borderRadius: { xs: "14px", md: "unset" },
         }}
       >
         {children}
