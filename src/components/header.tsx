@@ -1,5 +1,11 @@
 // @ts-nocheck
-import { AppBar, Autocomplete, Paper, Typography } from "@mui/material";
+import {
+  AppBar,
+  Autocomplete,
+  Paper,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 import { Box } from "@mui/system";
 import * as React from "react";
 import { SearchInput } from "../components/styled-components/search-input.tsx";
@@ -15,11 +21,13 @@ export const Header = () => {
 
   return (
     <React.Fragment>
+      <div style={{ height: "110px" }} />
       <AppBar
         sx={{
-          position: "static",
+          position: "fixed",
           backgroundColor: "custom.background",
           height: "110px",
+          top: "0",
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-between",
@@ -30,9 +38,11 @@ export const Header = () => {
           onClick={() => navigate("/")}
           sx={{ cursor: "pointer" }}
           alignItems={"center"}
+          justifyContent={"center"}
           height={"100%"}
           gap={"10px"}
-          paddingLeft={"15px"}
+          flexDirection={"column"}
+          paddingLeft={"20px"}
           display={"flex"}
         >
           <Owl style={{ height: "40px" }} />
@@ -44,7 +54,7 @@ export const Header = () => {
           disablePortal
           id="combo-box-demo"
           options={options.map((option) => option)}
-          sx={{ width: "50%" }}
+          sx={{ width: "55%" }}
           PaperComponent={({ children }) => (
             <Paper sx={{ fontFamily: "Roboto" }}>{children}</Paper>
           )}
@@ -59,7 +69,7 @@ export const Header = () => {
         <Box>
           <Typography
             sx={{
-              paddingRight: "15px",
+              paddingRight: "20px",
               cursor: "pointer",
               display: { xs: "none", sm: "block" },
             }}

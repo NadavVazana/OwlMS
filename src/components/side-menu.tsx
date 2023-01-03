@@ -2,6 +2,7 @@
 import { List, ListItem, ListItemButton, ListItemText } from "@mui/material";
 import { Box } from "@mui/system";
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { drawerState } from "../atoms/drawerState";
 import { ReactComponent as Menu } from "../assets/images/menu.svg";
@@ -9,9 +10,22 @@ import { CustomDrawer } from "../components/styled-components/custom-drawer";
 
 export const SideMenu = () => {
   const [isMenu, setMenu] = useRecoilState(drawerState);
+  const navigate = useNavigate();
 
   const handleMenuClick = (isOpen) => {
     setMenu(isOpen);
+  };
+
+  const handleOptionClick = (path) => {
+    setMenu(false);
+    switch (path) {
+      case "Home":
+        navigate("/");
+        break;
+      case "Items":
+        navigate("item/123");
+        break;
+    }
   };
 
   return (
@@ -25,8 +39,12 @@ export const SideMenu = () => {
           open={isMenu}
         >
           <List>
-            {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-              <ListItem key={text} disablePadding>
+            {["Home", "Items", "About"].map((text, index) => (
+              <ListItem
+                onClick={() => handleOptionClick(text)}
+                key={text}
+                disablePadding
+              >
                 <ListItemButton>
                   <ListItemText primary={text} />
                 </ListItemButton>
