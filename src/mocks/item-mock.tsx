@@ -1,3 +1,4 @@
+// items for item list mock
 const items = [
   {
     id: "1",

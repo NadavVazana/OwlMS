@@ -24,21 +24,24 @@ export const ItemPage = () => {
   };
 
   return (
-    <Box sx={{ bgcolor: "custom.background" }} height={"100vh"}>
+    <Box sx={{ bgcolor: "custom.background" }} height={"89vh"}>
       <Stack
         direction={"row"}
         sx={{
           gap: { md: "80px", xl: "100px" },
           bgcolor: "custom.background",
-          paddingTop: "15px",
+          paddingBlock: "15px",
           paddingInline: { xs: "0px", md: "40px" },
         }}
       >
         <Box
-          sx={{ width: { xs: "100%", md: "50%" } }}
+          sx={{
+            width: { xs: "100%", md: "50%" },
+            paddingTop: { xs: "15px", md: "5px" },
+          }}
           display={"flex"}
           flexDirection={"column"}
-          gap={"30px"}
+          gap={"15px"}
         >
           {items.map((item) => {
             return (

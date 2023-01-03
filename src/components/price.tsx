@@ -32,7 +32,10 @@ export const Price = ({
       gap={"8px"}
     >
       <Coin />
-      <Typography variant="subtitle1" fontSize={"30px"}>
+      <Typography
+        variant="subtitle1"
+        sx={{ fontSize: { xs: "20px", md: "30px" } }}
+      >
         {price}
       </Typography>
     </CardBox>

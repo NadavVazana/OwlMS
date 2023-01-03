@@ -1,27 +1,19 @@
 // @ts-nocheck
-import {
-  AppBar,
-  Autocomplete,
-  Paper,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { AppBar, Autocomplete, Paper, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import * as React from "react";
 import { SearchInput } from "../components/styled-components/search-input.tsx";
-import { ReactComponent as Owl } from "../assets/images/Owl.svg";
 import { SideMenu } from "../components/side-menu";
+import { OwlIcon } from "../components/owl-icon";
 import { useNavigate } from "react-router-dom";
+import { options } from "../mocks/autocomplete-mock";
 
 export const Header = () => {
-  //MOCK DATA FOR AUTO COMPLETE
-  const options = ["Dark scroll", "Gloves for att"];
-
   const navigate = useNavigate();
 
   return (
     <React.Fragment>
-      <div style={{ height: "110px" }} />
+      <div style={{ height: "11vh" }} />
       <AppBar
         sx={{
           position: "fixed",
@@ -45,7 +37,7 @@ export const Header = () => {
           paddingTop="10px"
           display={"flex"}
         >
-          <Owl style={{ height: "40px" }} />
+          <OwlIcon />
           <Typography variant="title">
             <span style={{ color: "#19976A" }}>Owl</span>MS
           </Typography>

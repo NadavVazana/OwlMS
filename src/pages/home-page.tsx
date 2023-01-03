@@ -1,4 +1,4 @@
-import { Box, Stack } from "@mui/system";
+import { Box } from "@mui/system";
 import * as React from "react";
 
 export const HomePage = () => {
