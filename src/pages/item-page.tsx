@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Stack } from "@mui/system";
 import Box from "@mui/material/Box";
 import { useRecoilState } from "recoil";

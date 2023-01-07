@@ -11,6 +11,11 @@ let theme = createTheme({
       paddingTop: "20px",
       fontWeight: "400",
     },
+    h1: {
+      fontWeight: "600",
+      fontSize: "50px",
+      letterSpacing: "0.025em",
+    },
     info: {
       fontSize: "35px",
       paddingTop: "25px",
@@ -33,6 +38,7 @@ let theme = createTheme({
       fontWeight: "800",
       color: "white",
       fontFamily: "Roboto",
+      letterSpacing: "0.025em",
     },
     subtitle1: {
       letterSpacing: "0.025em",

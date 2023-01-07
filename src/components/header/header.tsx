@@ -5,11 +5,13 @@ import * as React from "react";
 import { SearchInput } from "../styled-components/search-input";
 import { SideMenu } from "./side-menu";
 import { OwlIcon } from "./owl-icon";
-import { useNavigate } from "react-router-dom";
+import { Brand } from "../brand";
+import { useNavigate, useLocation } from "react-router-dom";
 import { options } from "../../mocks/autocomplete-mock";
 
 export const Header = () => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   return (
     <React.Fragment>
@@ -26,29 +28,14 @@ export const Header = () => {
           gap: "10px",
         }}
       >
-        <Box
-          onClick={() => navigate("/")}
-          sx={{ cursor: "pointer", paddingLeft: { xs: "10px", md: "50px" } }}
-          alignItems={"center"}
-          justifyContent={"center"}
-          height={"100%"}
-          gap={"10px"}
-          flexDirection={"column"}
-          paddingTop="10px"
-          display={"flex"}
-        >
-          <OwlIcon />
-          <Typography variant="title">
-            <span style={{ color: "#19976A" }}>Owl</span>MS
-          </Typography>
-        </Box>
+        <Brand direction={"column"} />
 
         <Autocomplete
           freeSolo
           disablePortal
           id="combo-box-demo"
           options={options.map((option) => option)}
-          sx={{ width: "55%" }}
+          sx={{ width: "55%", display: pathname === "/" ? "none" : "block" }}
           PaperComponent={({ children }) => (
             <Paper sx={{ fontFamily: "Roboto" }}>{children}</Paper>
           )}

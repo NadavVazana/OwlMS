@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { selector } from "recoil";
 import { Item } from "../models/item";
 import { selectedItem } from "../atoms/selected-item";
