@@ -4,13 +4,11 @@ import { Box } from "@mui/system";
 import * as React from "react";
 import { SearchInput } from "../styled-components/search-input";
 import { SideMenu } from "./side-menu";
-import { OwlIcon } from "./owl-icon";
 import { Brand } from "../brand";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { options } from "../../mocks/autocomplete-mock";
 
 export const Header = () => {
-  const navigate = useNavigate();
   const { pathname } = useLocation();
 
   return (
