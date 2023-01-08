@@ -1,4 +1,3 @@
-import { meta } from "../mocks/meta";
 export const apiClient = {
   getMeta,
   getItem,

@@ -2,13 +2,10 @@
 import { ThemeProvider } from "@mui/material";
 import theme from "./theme";
 import { Header } from "./components/header/header";
-import { RecoilRoot, useRecoilState } from "recoil";
+import { RecoilRoot } from "recoil";
 import routes from "./routes";
 import { Route, Routes } from "react-router-dom";
 import Box from "@mui/material/Box";
-import { useEffect } from "react";
-import { metaItems } from "./atoms/meta-items";
-import { apiClient } from "./api/api-client";
 import { AppWrapper } from "./components/app-wrapper";
 
 export const App = () => {

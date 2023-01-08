@@ -1,7 +1,6 @@
 // @ts-nocheck
 import { Typography } from "@mui/material";
 import * as React from "react";
-import { apiClient } from "../../api/api-client";
 import { CardBox } from "../styled-components/card-box";
 
 type ItemTitleProps = {
