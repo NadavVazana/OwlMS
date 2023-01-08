@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/OwlMS/static/js/main.849a12a8.js",
+    "main.js": "/OwlMS/static/js/main.1718a0a2.js",
     "static/media/Coin.svg": "/OwlMS/static/media/Coin.d9ce48f92de56a218389246eaaeab322.svg",
     "static/media/Owl.svg": "/OwlMS/static/media/Owl.2d24382f32df57c7e33ca4a9a873e131.svg",
     "static/media/Card_Icon_Room.svg": "/OwlMS/static/media/Card_Icon_Room.d3223bb00e807a54608996b83e444b99.svg",
@@ -11,9 +11,9 @@
     "static/media/close-modal.svg": "/OwlMS/static/media/close-modal.9f90b85d3b2d10904d221ba18293c933.svg",
     "static/media/menu.svg": "/OwlMS/static/media/menu.efff87500ed7febaef4668156089377f.svg",
     "static/media/Info Icon.svg": "/OwlMS/static/media/Info Icon.e28add5a2a9d4a57235a0e47a3badc7f.svg",
-    "main.849a12a8.js.map": "/OwlMS/static/js/main.849a12a8.js.map"
+    "main.1718a0a2.js.map": "/OwlMS/static/js/main.1718a0a2.js.map"
   },
   "entrypoints": [
-    "static/js/main.849a12a8.js"
+    "static/js/main.1718a0a2.js"
   ]
 }
