@@ -22,9 +22,6 @@ export const SideMenu = () => {
       case "Home":
         navigate("/");
         break;
-      case "Items":
-        navigate("item/123");
-        break;
     }
   };
 
@@ -39,7 +36,7 @@ export const SideMenu = () => {
           open={isMenu}
         >
           <List>
-            {["Home", "Items", "About"].map((text, index) => (
+            {["Home", "About"].map((text, index) => (
               <ListItem
                 onClick={() => handleOptionClick(text)}
                 key={text}
