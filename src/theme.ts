@@ -66,7 +66,7 @@ theme.typography.title = {
     fontSize: "19px",
   },
   [theme.breakpoints.up(720)]: {
-    fontSize: "30px",
+    fontSize: "20px",
   },
 };
 
@@ -78,6 +78,13 @@ theme.typography.info = {
   [theme.breakpoints.down(510)]: {
     fontSize: "21px",
     paddingTop: "0",
+  },
+};
+
+theme.typography.h1 = {
+  ...theme.typography.h1,
+  [theme.breakpoints.down(700)]: {
+    fontSize: "20px",
   },
 };
 

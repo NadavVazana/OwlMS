@@ -18,7 +18,6 @@ export const ItemCard = ({
   handleSelectedItem,
 }: ItemCardProps) => {
   const selected = useRecoilValue(selectedItem);
-
   return (
     <React.Fragment>
       <CardStack
@@ -41,7 +40,7 @@ export const ItemCard = ({
         }}
       >
         {children}
-        <Price price={item.item_price} />
+        <Price price={item.price} />
       </CardStack>
     </React.Fragment>
   );
