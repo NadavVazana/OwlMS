@@ -120,7 +120,12 @@ export const ItemPreview = ({
                   alt="store-icon"
                 />
                 <Typography variant="infoTitle">Store Name</Typography>
-                <Typography variant="info">{item.name}</Typography>
+                <Typography
+                  sx={{ fontSize: { md: "20px", lg: "30px" } }}
+                  variant="info"
+                >
+                  {item.name}
+                </Typography>
               </CardInfoBox>
             </Grid>
             <Grid
