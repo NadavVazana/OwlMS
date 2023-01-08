@@ -6,12 +6,19 @@ import { RecoilRoot } from "recoil";
 import routes from "./routes";
 import { Route, Routes } from "react-router-dom";
 import Box from "@mui/material/Box";
+import { AppWrapper } from "./components/app-wrapper";
 
 export const App = () => {
   return (
     <RecoilRoot>
       <ThemeProvider theme={theme}>
-        <Box sx={{ height: "100vh", backgroundColor: "custom.background" }}>
+        <AppWrapper />
+        <Box
+          sx={{
+            height: "100vh",
+            backgroundColor: "custom.background",
+          }}
+        >
           <Header />
           <Routes>
             {routes.map((route) => (

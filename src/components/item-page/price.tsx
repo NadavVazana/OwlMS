@@ -3,7 +3,7 @@ import { ReactComponent as Coin } from "../../assets/images/Coin.svg";
 import { CardBox } from "../styled-components/card-box";
 
 type PriceProps = {
-  price: string;
+  price: number;
   isForPreview: boolean;
   screenHeight: number;
 };
@@ -34,9 +34,9 @@ export const Price = ({
       <Coin />
       <Typography
         variant="subtitle1"
-        sx={{ fontSize: { xs: "20px", md: "30px" } }}
+        sx={{ fontSize: { xs: "20px", md: "25px" } }}
       >
-        {price}
+        {price && price.toLocaleString()}
       </Typography>
     </CardBox>
   );

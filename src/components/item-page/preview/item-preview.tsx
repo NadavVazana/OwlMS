@@ -1,6 +1,6 @@
 // @ts-nocheck
 import * as React from "react";
-import { Grid, Typography } from "@mui/material";
+import { Divider, Grid, Typography } from "@mui/material";
 import { CardBox } from "../../styled-components/card-box";
 import { CardInfoBox } from "../../styled-components/card-info-box";
 import { CardStack } from "../../styled-components/card-stack";
@@ -14,9 +14,17 @@ import { Box } from "@mui/system";
 type ItemPreviewProps = {
   item?: Item;
   handleCloseModal: () => void;
+  metaItem?: Item;
 };
 
-export const ItemPreview = ({ item, handleCloseModal }: ItemPreviewProps) => {
+export const ItemPreview = ({
+  item,
+  handleCloseModal,
+  metaItem,
+}: ItemPreviewProps) => {
+  let statsTitles = [];
+  if (item?.stats) statsTitles = Object.keys(item.stats);
+
   const screenHeight = +window.innerHeight;
 
   return (
@@ -24,6 +32,7 @@ export const ItemPreview = ({ item, handleCloseModal }: ItemPreviewProps) => {
       <CardStack
         sx={{
           borderRadius: { xs: "0", md: "14px" },
+
           transition: "all 0.3s",
           backgroundColor: "#1E2022",
           height: { xs: "100%", md: screenHeight < 900 ? "80%" : "83%" },
@@ -49,7 +58,7 @@ export const ItemPreview = ({ item, handleCloseModal }: ItemPreviewProps) => {
           <CloseModalIcon onClick={handleCloseModal} />
         </Box>
         <CardBox gap={"18px"} paddingTop={"14px"}>
-          <ItemTitle title={item.item_name} />
+          <ItemTitle imgPath={metaItem.image} title={metaItem.name} />
         </CardBox>
         <CardBox>
           <Grid
@@ -63,7 +72,13 @@ export const ItemPreview = ({ item, handleCloseModal }: ItemPreviewProps) => {
             container
             spacing={1}
           >
-            <Grid sx={{ height: { xs: "25%", md: "25%" } }} item xs={5}>
+            <Grid
+              sx={{
+                height: { xs: "25%", md: "25%" },
+              }}
+              item
+              xs={5}
+            >
               <ItemPreviewCard title="Channel" info={item.channel}>
                 <img
                   style={{ position: "absolute", top: "-20px", right: "5px" }}
@@ -82,7 +97,7 @@ export const ItemPreview = ({ item, handleCloseModal }: ItemPreviewProps) => {
               item
               xs={5}
             >
-              <ItemPreviewCard title="Room" info={item.room}>
+              <ItemPreviewCard title="Room" info={item.free_market}>
                 <img
                   style={{ position: "absolute", top: "-20px", right: "5px" }}
                   src={
@@ -105,7 +120,7 @@ export const ItemPreview = ({ item, handleCloseModal }: ItemPreviewProps) => {
                   alt="store-icon"
                 />
                 <Typography variant="infoTitle">Store Name</Typography>
-                <Typography variant="info">{item?.store_name}</Typography>
+                <Typography variant="info">{item.name}</Typography>
               </CardInfoBox>
             </Grid>
             <Grid
@@ -127,10 +142,39 @@ export const ItemPreview = ({ item, handleCloseModal }: ItemPreviewProps) => {
                   alt="info-icon"
                 />
                 <Typography variant="infoTitle">Information</Typography>
-                <Typography variant="description">
-                  Improves INT on the overall armor. Success rate:30%, INT+5,
-                  magic defense+3, MaxMP+10 If failed,armor. Success rate:30%,
-                  INT+5, magi
+                <Typography
+                  sx={{
+                    whiteSpace: "pre-line",
+                    alignSelf: "flex-start",
+                    boxSizing: "border-box",
+                    padding: "10px",
+                    width: "100%",
+                    "::-webkit-scrollbar": {
+                      width: "10px",
+                    },
+                    "::-webkit-scrollbar-thumb": {
+                      background: "black",
+                      borderRadius: "15px",
+                    },
+                  }}
+                  variant="description"
+                >
+                  {metaItem?.kind === "Equip" && statsTitles && item?.stats && (
+                    <>
+                      {statsTitles.map(
+                        (statTitle) =>
+                          `${statTitle} : ${item.stats[statTitle]} \n`
+                      )}
+                    </>
+                  )}
+                  <Divider
+                    light={true}
+                    sx={{
+                      borderColor: "custom.background",
+                      borderWidth: "1px",
+                    }}
+                  />
+                  {metaItem.description}
                 </Typography>
               </CardInfoBox>
             </Grid>
@@ -139,7 +183,7 @@ export const ItemPreview = ({ item, handleCloseModal }: ItemPreviewProps) => {
         <Price
           screenHeight={screenHeight}
           isForPreview={true}
-          price={item?.item_price}
+          price={item.price}
         />
       </CardStack>
     </React.Fragment>

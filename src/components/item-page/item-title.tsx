@@ -5,16 +5,17 @@ import { CardBox } from "../styled-components/card-box";
 
 type ItemTitleProps = {
   title: string;
+  imgPath: string;
 };
 
-export const ItemTitle = ({ title }: ItemTitleProps) => {
+export const ItemTitle = ({ title, imgPath }: ItemTitleProps) => {
   return (
     <React.Fragment>
       <CardBox gap={"18px"} paddingTop={"14px"}>
         <img
           style={{ paddingLeft: "10px" }}
           height={"35px"}
-          src={require("../../assets/images/scroll.svg").default}
+          src={`https://api.owlms.store/${imgPath}`}
           alt="scroll-pic"
         />
         <Typography

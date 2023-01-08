@@ -6,10 +6,23 @@ import { SearchInput } from "../styled-components/search-input";
 import { SideMenu } from "./side-menu";
 import { Brand } from "../brand";
 import { useLocation } from "react-router-dom";
-import { options } from "../../mocks/autocomplete-mock";
+import { useRecoilValue } from "recoil";
+import { metaItemsSelector } from "../../selectors/meta-items";
+import { matchSorter } from "match-sorter";
 
 export const Header = () => {
   const { pathname } = useLocation();
+  const metaItems = useRecoilValue(metaItemsSelector);
+  const metaItemsNames = metaItems.map((item) => item.name);
+
+  const handleSearch = (value) => {
+    const itemName = matchSorter(metaItemsNames, value)[0];
+    const item = metaItems.find((item) => item.name === itemName);
+    navigate(`item/${item.id}`);
+  };
+
+  const filterOptions = (metaItemsNames, { inputValue }) =>
+    matchSorter(metaItemsNames, inputValue);
 
   return (
     <React.Fragment>
@@ -29,13 +42,19 @@ export const Header = () => {
         <Brand direction={"column"} />
 
         <Autocomplete
+          filterOptions={filterOptions}
           freeSolo
+          onChange={(event, newValue) => {
+            handleSearch(newValue);
+          }}
           disablePortal
           id="combo-box-demo"
-          options={options.map((option) => option)}
+          options={[...new Set(metaItems.map((option) => option.name))]}
           sx={{ width: "55%", display: pathname === "/" ? "none" : "block" }}
           PaperComponent={({ children }) => (
-            <Paper sx={{ fontFamily: "Roboto" }}>{children}</Paper>
+            <Paper key={children} sx={{ fontFamily: "Roboto" }}>
+              {children}
+            </Paper>
           )}
           renderInput={(params) => (
             <SearchInput
