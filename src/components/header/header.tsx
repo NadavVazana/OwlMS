@@ -9,7 +9,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { metaItemsSelector } from "../../selectors/meta-items";
 import { matchSorter } from "match-sorter";
-import { selectedItemSelector } from "../../selectors/selected-item";
 
 export const Header = () => {
   const { pathname } = useLocation();
