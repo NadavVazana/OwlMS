@@ -34,7 +34,7 @@ export const ItemPage = () => {
 
       setItemsToShow(items);
     })();
-  }, [params.itemId]);
+  }, [setItem, params.itemId]);
 
   const handleSelectItem = (item: Item) => {
     setItem(item);
