@@ -79,7 +79,7 @@ export const ItemPreview = ({
               item
               xs={5}
             >
-              <ItemPreviewCard title="Channel" info={item.channel}>
+              <ItemPreviewCard title="Channel" info={item?.channel}>
                 <img
                   style={{ position: "absolute", top: "-20px", right: "5px" }}
                   src={
@@ -165,15 +165,16 @@ export const ItemPreview = ({
                         (statTitle) =>
                           `${statTitle} : ${item.stats[statTitle]} \n`
                       )}
+                      <Divider
+                        light={true}
+                        sx={{
+                          borderColor: "custom.background",
+                          borderWidth: "1px",
+                        }}
+                      />
                     </>
                   )}
-                  <Divider
-                    light={true}
-                    sx={{
-                      borderColor: "custom.background",
-                      borderWidth: "1px",
-                    }}
-                  />
+
                   {metaItem.description}
                 </Typography>
               </CardInfoBox>
