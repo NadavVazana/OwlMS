@@ -30,6 +30,7 @@ export const ItemPage = () => {
           return { ...currItem, id: utils.makeId() };
         }),
       };
+      setItem(items.listings[0]);
 
       setItemsToShow(items);
     })();

@@ -32,8 +32,8 @@ export const ItemPreview = ({
       <CardStack
         sx={{
           borderRadius: { xs: "0", md: "14px" },
-
           transition: "all 0.3s",
+          width: { xs: "100%", md: "40%" },
           backgroundColor: "#1E2022",
           height: { xs: "100%", md: screenHeight < 900 ? "80%" : "83%" },
           justifyContent: "unset",

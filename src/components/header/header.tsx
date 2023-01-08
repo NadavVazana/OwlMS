@@ -5,15 +5,17 @@ import * as React from "react";
 import { SearchInput } from "../styled-components/search-input";
 import { SideMenu } from "./side-menu";
 import { Brand } from "../brand";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { metaItemsSelector } from "../../selectors/meta-items";
 import { matchSorter } from "match-sorter";
+import { selectedItemSelector } from "../../selectors/selected-item";
 
 export const Header = () => {
   const { pathname } = useLocation();
   const metaItems = useRecoilValue(metaItemsSelector);
   const metaItemsNames = metaItems.map((item) => item.name);
+  const navigate = useNavigate();
 
   const handleSearch = (value) => {
     const itemName = matchSorter(metaItemsNames, value)[0];
