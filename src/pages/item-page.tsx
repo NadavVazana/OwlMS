@@ -56,60 +56,61 @@ export const ItemPage = () => {
         variant="h1"
         color={"white"}
       >
-        None of the items is on sale...
+        {itemsToShow.meta?.name} Was not found...
       </Typography>
     );
-  return (
-    <Box sx={{ bgcolor: "custom.background" }}>
-      <Stack
-        direction={"row"}
-        sx={{
-          gap: { md: "80px", xl: "100px" },
-          bgcolor: "custom.background",
-          paddingBlock: "15px",
-          paddingInline: { xs: "0px", md: "40px" },
-        }}
-      >
-        <Box
+  else
+    return (
+      <Box sx={{ bgcolor: "custom.background" }}>
+        <Stack
+          direction={"row"}
           sx={{
-            width: { xs: "100%", md: "50%" },
-            paddingTop: { xs: "15px", md: "5px" },
+            gap: { md: "80px", xl: "100px" },
+            bgcolor: "custom.background",
+            paddingBlock: "15px",
+            paddingInline: { xs: "0px", md: "40px" },
           }}
-          display={"flex"}
-          flexDirection={"column"}
-          gap={"15px"}
         >
-          {itemsToShow.listings.map((item) => {
-            return (
-              <ItemCard
-                handleSelectedItem={handleSelectItem}
-                key={item.id}
-                item={item}
-              >
-                <ItemTitle
-                  imgPath={itemsToShow.meta.image}
-                  title={itemsToShow.meta.name}
-                />
-              </ItemCard>
-            );
-          })}
-        </Box>
+          <Box
+            sx={{
+              width: { xs: "100%", md: "50%" },
+              paddingTop: { xs: "15px", md: "5px" },
+            }}
+            display={"flex"}
+            flexDirection={"column"}
+            gap={"15px"}
+          >
+            {itemsToShow.listings.map((item) => {
+              return (
+                <ItemCard
+                  handleSelectedItem={handleSelectItem}
+                  key={item.id}
+                  item={item}
+                >
+                  <ItemTitle
+                    imgPath={itemsToShow.meta.image}
+                    title={itemsToShow.meta.name}
+                  />
+                </ItemCard>
+              );
+            })}
+          </Box>
 
-        <Box
-          sx={{
-            transition: "opacity 0.3s",
-            pointerEvents: { xs: isModal ? "all" : "none", md: "all" },
-            opacity: { xs: isModal ? 1 : 0, md: 1 },
-            position: { xs: "fixed", md: "static" },
-          }}
-        >
-          <ItemPreview
-            handleCloseModal={handleCloseModal}
-            metaItem={itemsToShow.meta}
-            item={item}
-          />
-        </Box>
-      </Stack>
-    </Box>
-  );
+          <Box
+            sx={{
+              transition: "opacity 0.3s",
+              pointerEvents: { xs: isModal ? "all" : "none", md: "all" },
+              opacity: { xs: isModal ? 1 : 0, md: 1 },
+              position: { xs: "fixed", md: "static" },
+            }}
+          >
+            <ItemPreview
+              handleCloseModal={handleCloseModal}
+              metaItem={itemsToShow.meta}
+              item={item}
+            />
+          </Box>
+        </Stack>
+      </Box>
+    );
 };

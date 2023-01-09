@@ -27,12 +27,12 @@ export const ItemCard = ({
         sx={{
           backgroundColor: {
             xs: "primary.main",
-            md: selected.id === item.id ? "primary.dark" : "primary.main",
+            md: selected?.id === item?.id ? "primary.dark" : "primary.main",
           },
           boxShadow: {
             xs: "unset",
             md:
-              selected.id === item.id
+              selected?.id === item?.id
                 ? "inset 5px 5px 10px rgba(0, 0, 0, 0.4);"
                 : 0,
           },

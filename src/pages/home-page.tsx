@@ -29,6 +29,7 @@ export const HomePage = () => {
       apiClient.getMeta();
     })();
   }, []);
+
   return (
     <Box backgroundColor={"custom.background"}>
       <Stack
@@ -58,6 +59,7 @@ export const HomePage = () => {
           )}
           renderInput={(params) => (
             <SearchInput
+              autoFocus
               {...params}
               sx={{ width: { md: "800px", sm: "600px", xs: "350px" } }}
               label={"Search example: Dark scroll for Overall armor..."}

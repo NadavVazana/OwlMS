@@ -13,8 +13,13 @@ import { matchSorter } from "match-sorter";
 export const Header = () => {
   const { pathname } = useLocation();
   const metaItems = useRecoilValue(metaItemsSelector);
+  const inputRef = React.useRef();
   const metaItemsNames = metaItems.map((item) => item.name);
   const navigate = useNavigate();
+
+  React.useEffect(() => {
+    inputRef.current.value = "";
+  }, []);
 
   const handleSearch = (value) => {
     const itemName = matchSorter(metaItemsNames, value)[0];
@@ -59,6 +64,7 @@ export const Header = () => {
           )}
           renderInput={(params) => (
             <SearchInput
+              ref={inputRef}
               {...params}
               label="Search example: Dark scroll for Overall armor..."
             />

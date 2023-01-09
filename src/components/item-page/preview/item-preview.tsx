@@ -79,7 +79,7 @@ export const ItemPreview = ({
               item
               xs={5}
             >
-              <ItemPreviewCard title="Channel" info={item.channel}>
+              <ItemPreviewCard title="Channel" info={item?.channel}>
                 <img
                   style={{ position: "absolute", top: "-20px", right: "5px" }}
                   src={
@@ -120,7 +120,12 @@ export const ItemPreview = ({
                   alt="store-icon"
                 />
                 <Typography variant="infoTitle">Store Name</Typography>
-                <Typography variant="info">{item.name}</Typography>
+                <Typography
+                  sx={{ fontSize: { md: "20px", lg: "30px" } }}
+                  variant="info"
+                >
+                  {item.name}
+                </Typography>
               </CardInfoBox>
             </Grid>
             <Grid
@@ -165,15 +170,16 @@ export const ItemPreview = ({
                         (statTitle) =>
                           `${statTitle} : ${item.stats[statTitle]} \n`
                       )}
+                      <Divider
+                        light={true}
+                        sx={{
+                          borderColor: "custom.background",
+                          borderWidth: "1px",
+                        }}
+                      />
                     </>
                   )}
-                  <Divider
-                    light={true}
-                    sx={{
-                      borderColor: "custom.background",
-                      borderWidth: "1px",
-                    }}
-                  />
+
                   {metaItem.description}
                 </Typography>
               </CardInfoBox>
