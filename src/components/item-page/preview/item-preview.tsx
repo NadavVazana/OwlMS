@@ -35,7 +35,10 @@ export const ItemPreview = ({
           transition: "all 0.3s",
           width: { xs: "100%", md: "40%" },
           backgroundColor: "#1E2022",
-          height: { xs: "100%", md: screenHeight < 900 ? "80%" : "83%" },
+          height: {
+            xs: "100%",
+            md: screenHeight < 900 ? "80%" : "83%",
+          },
           justifyContent: "unset",
           gap: { xs: "30px", md: "50px" },
           position: "fixed",
@@ -66,7 +69,7 @@ export const ItemPreview = ({
             sx={{
               height: {
                 md: "550px",
-                xs: "100%",
+                xs: "unset",
               },
             }}
             container
@@ -74,7 +77,7 @@ export const ItemPreview = ({
           >
             <Grid
               sx={{
-                height: { xs: "25%", md: "25%" },
+                height: { xs: "unset", sm: "20%" },
               }}
               item
               xs={5}
@@ -92,7 +95,7 @@ export const ItemPreview = ({
             </Grid>
             <Grid
               sx={{
-                height: { xs: "25%", md: "25%" },
+                height: { xs: "20%" },
               }}
               item
               xs={5}
@@ -109,9 +112,9 @@ export const ItemPreview = ({
             </Grid>
             <Grid
               marginTop={"20px"}
-              sx={{ height: { xs: "25%", md: "25%" } }}
+              sx={{ height: { xs: "unset", sm: "20%" } }}
               item
-              xs={10}
+              xs={5}
             >
               <CardInfoBox>
                 <img
@@ -121,7 +124,7 @@ export const ItemPreview = ({
                 />
                 <Typography variant="infoTitle">Store Name</Typography>
                 <Typography
-                  sx={{ fontSize: { md: "20px", lg: "30px" } }}
+                  sx={{ fontSize: { xs: "15px" }, padding: "5px" }}
                   variant="info"
                 >
                   {item.name}
@@ -129,13 +132,37 @@ export const ItemPreview = ({
               </CardInfoBox>
             </Grid>
             <Grid
+              marginTop={"20px"}
+              sx={{ height: { xs: "unset", sm: "20%" } }}
+              item
+              xs={5}
+            >
+              <CardInfoBox>
+                <img
+                  style={{ position: "absolute", top: "-20px", right: "5px" }}
+                  src={
+                    require("../../../assets/images/Seller_name_icon.svg")
+                      .default
+                  }
+                  alt="store-icon"
+                />
+                <Typography variant="infoTitle">Seller Name</Typography>
+                <Typography
+                  sx={{ fontSize: { xs: "15px" }, padding: "5px" }}
+                  variant="info"
+                >
+                  {item.player_name}
+                </Typography>
+              </CardInfoBox>
+            </Grid>
+
+            <Grid
               marginY={"20px"}
               sx={{
                 height: {
-                  xs: screenHeight > 750 ? "400px" : "200px",
-                  md: screenHeight < 900 ? "25%" : "59%",
+                  xs: screenHeight > 750 ? "50%" : "150px",
+                  md: screenHeight < 900 ? "25%" : "68%",
                 },
-                maxHeight: { xs: "30%", md: "59%" },
               }}
               item
               xs={10}
