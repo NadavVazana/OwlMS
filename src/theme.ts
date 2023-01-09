@@ -17,8 +17,8 @@ let theme = createTheme({
       letterSpacing: "0.025em",
     },
     info: {
-      fontSize: "35px",
-      paddingTop: "25px",
+      fontSize: "25px",
+      padding: "10px",
       fontFamily: "Roboto",
       color: "white",
       fontWeight: "800",
@@ -73,10 +73,10 @@ theme.typography.title = {
 theme.typography.info = {
   ...theme.typography.info,
   [theme.breakpoints.down(700)]: {
-    fontSize: "30px",
+    padding: "5px",
   },
   [theme.breakpoints.down(510)]: {
-    fontSize: "21px",
+    fontSize: "20px",
     paddingTop: "0",
   },
 };
