@@ -25,6 +25,7 @@ export const ItemCard = ({
           handleSelectedItem(item);
         }}
         sx={{
+          cursor: "pointer",
           backgroundColor: {
             xs: "primary.main",
             md: selected?.id === item?.id ? "primary.dark" : "primary.main",

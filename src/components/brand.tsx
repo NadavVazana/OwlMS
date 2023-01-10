@@ -32,7 +32,7 @@ export const Brand = ({
       display={"flex"}
     >
       <OwlIcon isHeader={isHeader} fontSize={fontSize} />
-      <Typography variant={isHeader ? "title" : "h1"}>
+      <Typography variant={isHeader ? "title" : "h2"}>
         <span style={{ color: "#19976A" }}>Owl</span>MS
       </Typography>
     </Box>

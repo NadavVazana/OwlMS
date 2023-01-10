@@ -16,7 +16,7 @@ export const Price = ({
   return (
     <CardBox
       sx={{
-        paddingTop: isForPreview ? { xs: "0px", md: "40px" } : "20px",
+        paddingTop: isForPreview ? { xs: "0px", md: "40px" } : "0px",
         position: isForPreview
           ? { xs: "fixed", md: screenHeight < 900 ? "absolute" : "static" }
           : "static",
@@ -34,7 +34,9 @@ export const Price = ({
       <Coin />
       <Typography
         variant="subtitle1"
-        sx={{ fontSize: { xs: "20px", md: "25px" } }}
+        sx={{
+          fontSize: isForPreview ? { xs: "20px", md: "25px" } : "20px",
+        }}
       >
         {price && price.toLocaleString()}
       </Typography>

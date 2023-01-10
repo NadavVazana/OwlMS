@@ -45,6 +45,11 @@ let theme = createTheme({
       fontWeight: "600",
       fontSize: "18px",
     },
+    h2: {
+      fontWeight: "600",
+      fontSize: "50px",
+      letterSpacing: "0.025em",
+    },
     allVariants: {
       color: "#FFFF",
     },
