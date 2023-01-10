@@ -4,6 +4,7 @@ import { Stack, StackProps } from "@mui/system";
 export const CardStack = styled(Stack)<StackProps>(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  height: "130px",
+  borderRadius: "20px",
+  height: "90px",
   justifyContent: "space-between",
 }));

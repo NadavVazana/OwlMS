@@ -1,6 +1,6 @@
 // @ts-nocheck
 import * as React from "react";
-import { Divider, Grid, Typography } from "@mui/material";
+import { Divider, Grid, Tooltip, Typography } from "@mui/material";
 import { CardBox } from "../../styled-components/card-box";
 import { CardInfoBox } from "../../styled-components/card-info-box";
 import { CardStack } from "../../styled-components/card-stack";
@@ -10,6 +10,7 @@ import { ItemTitle } from "../item-title";
 import { Item } from "../models/item";
 import { ReactComponent as CloseModalIcon } from "../../../assets/images/close-modal.svg";
 import { Box } from "@mui/system";
+import { BubbleTooltip } from "../../styled-components/buble-tooltip";
 
 type ItemPreviewProps = {
   item?: Item;
@@ -26,6 +27,13 @@ export const ItemPreview = ({
   if (item?.stats) statsTitles = Object.keys(item.stats);
 
   const screenHeight = +window.innerHeight;
+  let upgrades = item.stats.Upgrades;
+  if (!upgrades) upgrades = "";
+  else upgrades = `+${upgrades}`;
+
+  let bundle = item.bundle;
+  if (bundle === 1) bundle = "";
+  else bundle = `(x${bundle})`;
 
   return (
     <React.Fragment>
@@ -61,7 +69,14 @@ export const ItemPreview = ({
           <CloseModalIcon onClick={handleCloseModal} />
         </Box>
         <CardBox gap={"18px"} paddingTop={"14px"}>
-          <ItemTitle imgPath={metaItem.image} title={metaItem.name} />
+          <BubbleTooltip title={metaItem.description}>
+            <Box>
+              <ItemTitle
+                imgPath={metaItem.image}
+                title={`${metaItem.name}${bundle} ${upgrades}`}
+              />
+            </Box>
+          </BubbleTooltip>
         </CardBox>
         <CardBox>
           <Grid
@@ -100,7 +115,7 @@ export const ItemPreview = ({
               item
               xs={5}
             >
-              <ItemPreviewCard title="Room" info={item.free_market}>
+              <ItemPreviewCard title="Free Market" info={item.free_market}>
                 <img
                   style={{ position: "absolute", top: "-20px", right: "5px" }}
                   src={
@@ -197,17 +212,9 @@ export const ItemPreview = ({
                         (statTitle) =>
                           `${statTitle} : ${item.stats[statTitle]} \n`
                       )}
-                      <Divider
-                        light={true}
-                        sx={{
-                          borderColor: "custom.background",
-                          borderWidth: "1px",
-                        }}
-                      />
                     </>
                   )}
-
-                  {metaItem.description}
+                  {metaItem?.kind !== "Equip" && <>{metaItem.description}</>}
                 </Typography>
               </CardInfoBox>
             </Grid>

@@ -73,7 +73,7 @@ export const ItemPage = () => {
         >
           <Box
             sx={{
-              width: { xs: "100%", md: "50%" },
+              width: { xs: "100%", md: "30%" },
               paddingTop: { xs: "15px", md: "5px" },
             }}
             display={"flex"}
@@ -81,6 +81,13 @@ export const ItemPage = () => {
             gap={"15px"}
           >
             {itemsToShow.listings.map((item) => {
+              let upgrades = item.stats.Upgrades;
+              if (!upgrades) upgrades = "";
+              else upgrades = `+${upgrades}`;
+              let bundle = item.bundle;
+              if (bundle === 1) bundle = "";
+              else bundle = `(x${bundle})`;
+
               return (
                 <ItemCard
                   handleSelectedItem={handleSelectItem}
@@ -89,7 +96,7 @@ export const ItemPage = () => {
                 >
                   <ItemTitle
                     imgPath={itemsToShow.meta.image}
-                    title={itemsToShow.meta.name}
+                    title={`${itemsToShow.meta.name}${bundle} ${upgrades}`}
                   />
                 </ItemCard>
               );
