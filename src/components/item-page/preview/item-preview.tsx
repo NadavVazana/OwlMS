@@ -1,6 +1,6 @@
 // @ts-nocheck
 import * as React from "react";
-import { Divider, Grid, Tooltip, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { CardBox } from "../../styled-components/card-box";
 import { CardInfoBox } from "../../styled-components/card-info-box";
 import { CardStack } from "../../styled-components/card-stack";
