@@ -61,8 +61,13 @@ export const ItemPage = () => {
     );
   else
     return (
-      <Box sx={{ bgcolor: "custom.background" }}>
+      <Box
+        sx={{
+          bgcolor: "custom.background",
+        }}
+      >
         <Stack
+          justifyContent={"center"}
           direction={"row"}
           sx={{
             gap: { md: "80px", xl: "100px" },
@@ -73,7 +78,7 @@ export const ItemPage = () => {
         >
           <Box
             sx={{
-              width: { xs: "100%", md: "30%" },
+              width: { xs: "100%", md: "35%" },
               paddingTop: { xs: "15px", md: "5px" },
             }}
             display={"flex"}
@@ -103,20 +108,22 @@ export const ItemPage = () => {
             })}
           </Box>
 
-          <Box
+          {/* <Box
             sx={{
               transition: "opacity 0.3s",
               pointerEvents: { xs: isModal ? "all" : "none", md: "all" },
               opacity: { xs: isModal ? 1 : 0, md: 1 },
               position: { xs: "fixed", md: "static" },
+              width: "40%",
             }}
-          >
-            <ItemPreview
-              handleCloseModal={handleCloseModal}
-              metaItem={itemsToShow.meta}
-              item={item}
-            />
-          </Box>
+          > */}
+          <ItemPreview
+            isModal={isModal}
+            handleCloseModal={handleCloseModal}
+            metaItem={itemsToShow.meta}
+            item={item}
+          />
+          {/* </Box> */}
         </Stack>
       </Box>
     );
