@@ -16,14 +16,17 @@ type ItemPreviewProps = {
   item?: Item;
   handleCloseModal: () => void;
   metaItem?: Item;
+  isModal?: boolean;
 };
 
 export const ItemPreview = ({
   item,
   handleCloseModal,
   metaItem,
+  isModal = false,
 }: ItemPreviewProps) => {
   let statsTitles = [];
+
   if (item?.stats) statsTitles = Object.keys(item.stats);
 
   const screenHeight = +window.innerHeight;
@@ -39,8 +42,10 @@ export const ItemPreview = ({
     <React.Fragment>
       <CardStack
         sx={{
+          transition: "opacity 0.3s",
+          pointerEvents: { xs: isModal ? "all" : "none", md: "all" },
+          opacity: { xs: isModal ? 1 : 0, md: 1 },
           borderRadius: { xs: "0", md: "14px" },
-          transition: "all 0.3s",
           width: { xs: "100%", md: "40%" },
           backgroundColor: "#1E2022",
           height: {
@@ -49,12 +54,11 @@ export const ItemPreview = ({
           },
           justifyContent: "unset",
           gap: { xs: "30px", md: "50px" },
-          position: "fixed",
+          position: { xs: "fixed", md: "sticky" },
           top: {
             xs: "110px",
-            md: "120px",
+            md: "130px",
           },
-          paddingBottom: "30px",
           marginInlineEnd: { xs: "0", md: "30px" },
         }}
       >
@@ -66,7 +70,10 @@ export const ItemPreview = ({
             top: "5px",
           }}
         >
-          <CloseModalIcon onClick={handleCloseModal} />
+          <CloseModalIcon
+            style={{ cursor: "pointer" }}
+            onClick={handleCloseModal}
+          />
         </Box>
         <CardBox gap={"18px"} paddingTop={"14px"}>
           <BubbleTooltip title={metaItem.description}>
